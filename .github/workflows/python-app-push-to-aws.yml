@@ -94,7 +94,7 @@ jobs:
       run: |
         # Delete existing package (ignore if it doesn't exist)
         aws codeartifact delete-package-versions \
-          --domain zabalytics \
+          --domain abigaillucile \
           --repository pypi \
           --format pypi \
           --package file-encoder \
