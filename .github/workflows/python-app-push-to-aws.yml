@@ -102,7 +102,7 @@ jobs:
         #   --region us-west-2 || true
 
         # Upload the package
-        twine upload --repository-url $CODEARTIFACT_REPOSITORY_URL \
+        twine upload --repository-url "$CODEARTIFACT_REPOSITORY_URL" \
           --username aws \
           --password $CODEARTIFACT_AUTH_TOKEN \
           dist/*.whl
