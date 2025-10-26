@@ -92,14 +92,14 @@ jobs:
     - name: Publish to CodeArtifact
       if: matrix.python-version == '3.13' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v'))
       run: |
-        # # Delete existing package (ignore if it doesn't exist)
-        # aws codeartifact delete-package-versions \
-        #   --domain abigaillucile \
-        #   --repository pypi \
-        #   --format pypi \
-        #   --package file-encoder \
-        #   --versions 0.1.0 \ 
-        #   --region us-west-2 || true
+        # Delete existing package (ignore if it doesn't exist)
+        aws codeartifact delete-package-versions \
+          --domain abigaillucile \
+          --repository pypi \
+          --format pypi \
+          --package file-encoder \
+          --versions 0.1.0 \ 
+          --region us-west-2 || true
 
         # Upload the package
         twine upload --repository-url $CODEARTIFACT_REPOSITORY_URL \
